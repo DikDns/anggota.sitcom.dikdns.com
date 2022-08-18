@@ -109,32 +109,34 @@ function showLoading() {
     Loading...`;
 }
 
-function showCardsLoading() {
+function showCardLoading() {
   return `
-    <div class="card h-100" aria-hidden="true">
-      <div class="card-body">
-        <div class="h-100 d-flex flex-column justify-content-between">
-          <div>
-            <h5 class="card-title placeholder-wave">
-              <span class="placeholder placeholder-lg col-8"></span>
-            </h5>
-            <p class="card-text placeholder-wave">
-              <span class="placeholder col-2"></span>
-              <span class="placeholder col-2"></span>
-              <span class="placeholder col-2"></span>
-            </p>
-            <p class="card-text placeholder-wave mb-3 font-monospace">
-              <span class="placeholder col-6"></span>
-            </p>
-          </div>
-          <div>
-            <a href="#" tabindex="-1" class="disabled placeholder col-1"></a>
+    <div class="col-md-3 my-2">
+      <div class="card h-100" aria-hidden="true">
+        <div class="card-body">
+          <div class="h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title placeholder-wave">
+                <span class="placeholder placeholder-lg col-8"></span>
+              </h5>
+              <p class="card-text placeholder-wave">
+                <span class="placeholder col-2"></span>
+                <span class="placeholder col-2"></span>
+                <span class="placeholder col-2"></span>
+              </p>
+              <p class="card-text placeholder-wave mb-3 font-monospace">
+                <span class="placeholder col-6"></span>
+              </p>
+            </div>
+            <div>
+              <a href="#" tabindex="-1" class="disabled placeholder col-1"></a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer text-muted placeholder-wave">
-        <span class="placeholder placeholder-xs col-2 bg-secondary"></span>
-        <span class="placeholder placeholder-xs col-2 bg-secondary"></span>
+        <div class="card-footer text-muted placeholder-wave">
+          <span class="placeholder placeholder-xs col-2 bg-secondary"></span>
+          <span class="placeholder placeholder-xs col-2 bg-secondary"></span>
+        </div>
       </div>
     </div>
   `;
