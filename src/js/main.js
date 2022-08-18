@@ -119,7 +119,7 @@ function showCards(member) {
           <p class="card-text">
             ${member.kelas} | ${member.jabatan} | ${member.angkatan}
           </p>
-          <p class="card-text fs-6 mb-2 text-center font-monospace">
+          <p class="card-text fs-6 mb-2 font-monospace">
             "${member.deskripsi}"
           </p>
         </div>
