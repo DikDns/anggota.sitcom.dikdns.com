@@ -73,6 +73,12 @@ function updateLoading(condition = true) {
   if (condition) {
     searchBtn.disabled = true;
     searchBtn.innerHTML = showLoading();
+    const loadingCards = showCardsLoading();
+    let loadingCard = ``;
+    loadingCards.forEach((card) => {
+      loadingCard += card;
+    });
+    membersContainer.innerHTML = loadingCard;
   } else {
     searchBtn.disabled = false;
     searchBtn.innerHTML = `<i class="fa-solid fa-magnifying-glass me-2"></i> Search`;
@@ -110,37 +116,43 @@ function showLoading() {
     Loading...`;
 }
 
-function showCardLoading() {
-  return `
+function showCardsLoading(n = 1) {
+  const loadingCard = `
     <div class="col-md-3 my-2">
       <div class="card h-100" aria-hidden="true">
         <div class="card-body">
           <div class="h-100 d-flex flex-column justify-content-between">
             <div>
               <h5 class="card-title placeholder-wave">
-                <span class="placeholder placeholder-lg col-8"></span>
+                <span class="placeholder placeholder-lg col-12"></span>
               </h5>
               <p class="card-text placeholder-wave">
-                <span class="placeholder col-2"></span>
-                <span class="placeholder col-2"></span>
-                <span class="placeholder col-2"></span>
+                <span class="placeholder col-3"></span>
+                <span class="placeholder col-3"></span>
+                <span class="placeholder col-3"></span>
               </p>
               <p class="card-text placeholder-wave mb-3 font-monospace">
-                <span class="placeholder col-6"></span>
+                <span class="placeholder col-12"></span>
               </p>
             </div>
             <div>
-              <a href="#" tabindex="-1" class="disabled placeholder col-1"></a>
+              <a href="#" tabindex="-1" class="disabled placeholder col-3"></a>
             </div>
           </div>
         </div>
         <div class="card-footer text-muted placeholder-wave">
-          <span class="placeholder placeholder-xs col-2 bg-secondary"></span>
-          <span class="placeholder placeholder-xs col-2 bg-secondary"></span>
+          <span class="placeholder placeholder-xs col-12 bg-secondary"></span>
         </div>
       </div>
     </div>
   `;
+  const arr = [];
+
+  for (let i = 0; i < n; i++) {
+    arr.push(loadingCard);
+  }
+
+  return arr;
 }
 
 function showCards(member) {
