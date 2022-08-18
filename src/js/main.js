@@ -46,11 +46,16 @@ document.addEventListener("click", async function (e) {
 });
 
 function getMembers(search) {
+  // Loading
+  updateLoading(true);
   // Return Fetch with searching the value from parameter
   return fetch(
     "https://sitcom-api.vercel.app/api/member?token=62dcebd26ec9b1b06346bc40&search=" +
       search
   )
+    .finally(() => {
+      updateLoading(false);
+    })
     .then((response) => {
       return response.json();
     })
@@ -61,6 +66,16 @@ function getMembers(search) {
         return response;
       }
     });
+}
+
+function updateLoading(condition = true) {
+  if (condition) {
+    searchBtn.disabled = true;
+    searchBtn.innerHTML = showLoading();
+  } else {
+    searchBtn.disabled = false;
+    searchBtn.innerHTML = `<i class="fa-solid fa-magnifying-glass me-2"></i> Search`;
+  }
 }
 
 function updateUI(members) {
