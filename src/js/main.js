@@ -1,5 +1,6 @@
 const searchInput = document.querySelector("#searchInput");
 const searchBtn = document.querySelector("#searchBtn");
+const membersContainer = document.querySelector(".members-container");
 let members = [];
 
 async function main() {
@@ -81,7 +82,7 @@ function updateLoading(condition = true) {
 function updateUI(members) {
   let cards = "";
   members.forEach((member) => (cards += showCards(member)));
-  document.querySelector(".members-container").innerHTML = cards;
+  membersContainer.innerHTML = cards;
 }
 
 function getMemberDetail(id) {
