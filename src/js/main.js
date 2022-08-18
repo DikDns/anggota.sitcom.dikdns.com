@@ -113,19 +113,28 @@ function showCards(member) {
   return `<div class="col-md-3 my-2">
   <div class="card h-100">
     <div class="card-body">
-      <h5 class="card-title nama" id="nama">${member.nama}</h5>
-      <p class="card-text">${member.kelas} | ${member.jabatan} | ${
-    member.angkatan
-  }</p>
-      <a
-        href="#"
-        class="card-link modal-detail-button"
-        data-bs-toggle="modal"
-        data-bs-target="#detailModal"
-        data-id="${member._id}"
-      >
-        Detail</a
-      >
+      <div class="h-100 d-flex flex-column justify-content-between">
+        <div>
+          <h5 class="card-title nama" id="nama">${member.nama}</h5>
+          <p class="card-text">
+            ${member.kelas} | ${member.jabatan} | ${member.angkatan}
+          </p>
+          <p class="card-text fs-6 mb-2 text-center font-monospace">
+            "${member.deskripsi}"
+          </p>
+        </div>
+        <div>
+          <a
+            href="#"
+            class="card-link modal-detail-button"
+            data-bs-toggle="modal"
+            data-bs-target="#detailModal"
+            data-id="${member._id}"
+          >
+            Detail</a
+          >
+        </div>
+      </div>
     </div>
     <div class="card-footer text-muted" id="updatedAt">${new Date(
       member.updatedAt
