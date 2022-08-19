@@ -3,18 +3,6 @@ const searchBtn = document.querySelector("#searchBtn");
 const membersContainer = document.querySelector(".members-container");
 let members = [];
 
-async function main() {
-  const response = await getMembers(searchInput.value);
-  members = response.data;
-  updateUI(members);
-}
-
-try {
-  main();
-} catch (error) {
-  console.log(error);
-}
-
 searchBtn.addEventListener("click", async function () {
   try {
     main();
@@ -45,6 +33,12 @@ document.addEventListener("click", async function (e) {
     }
   }
 });
+
+async function main() {
+  const response = await getMembers(searchInput.value);
+  members = response.data;
+  updateUI(members);
+}
 
 function getMembers(search) {
   // Loading
@@ -226,4 +220,10 @@ ${member.deskripsi}
     Angkatan: ${member.angkatan}
   </li>
 </ul>`;
+}
+
+try {
+  main();
+} catch (error) {
+  console.log(error);
 }
