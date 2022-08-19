@@ -196,7 +196,11 @@ function showMemberDetail(member) {
   <h2 class="text-capitalize" id="nama">${member.nama}</h2>
   <span
     class="text-lowercase badge text-bg-${
-      member.status === "alumni" ? "secondary" : "success"
+      member.status === "aktif"
+        ? "success"
+        : member.status === "keluar"
+        ? "danger"
+        : "secondary"
     } ms-2"
     id="status"
     >${member.status}</span
