@@ -36,7 +36,32 @@ document.addEventListener("click", async function (e) {
 
 async function main() {
   const response = await getMembers(searchInput.value);
-  members = response.data;
+  members = response.data
+    // Sort berdasarkan status keaktifan
+    .sort((ma, mb) => (ma.status === mb.status ? -1 : 1))
+    // Sort berdasarkan angkatan terbaru
+    .sort((ma, mb) =>
+      ma.status === mb.status ? (ma.angkatan > mb.angkatan ? -1 : 1) : 0
+    )
+    // Sort berdasarkan kelas
+    .sort((ma, mb) =>
+      ma.status === mb.status && ma.angkatan === mb.angkatan
+        ? ma.kelas < mb.kelas
+          ? -1
+          : 1
+        : 0
+    )
+    // Sort berdasarkan nama abjad
+    .sort((ma, mb) =>
+      ma.kelas === mb.kelas &&
+      ma.status === mb.status &&
+      ma.angkatan === mb.angkatan
+        ? ma.nama < mb.nama
+          ? -1
+          : 1
+        : 0
+    );
+  console.log(members);
   updateUI(members);
 }
 
